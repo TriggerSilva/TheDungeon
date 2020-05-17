@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TheDungeon">
+  <ClassDiagramComponents>
+    <Class name="Characters" package="TheDungeon.Gamesettings" visibility="public" xPosition="484.0" yPosition="694.0">
+      <Fields>
+        <Field name="health" type="int" visibility="private"/>
+        <Field name="weapon" type="String[]" visibility="private"/>
+        <Field name="weapon1" type="String" visibility="private"/>
+        <Field name="attackDamage" type="int" visibility="private"/>
+        <Field name="numHealthPotions" type="int" visibility="private"/>
+        <Field name="healthPotionsHealAmount" type="int" visibility="private"/>
+        <Field name="healthPotionsDropChance" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getWeapon" returnType="String" visibility="public"/>
+        <Method name="setWeapon" returnType="void" visibility="public">
+          <Argument type="String[]" name="weapon"/>
+        </Method>
+        <Method name="getHealth" returnType="int" visibility="public"/>
+        <Method name="setHealth" returnType="void" visibility="public">
+          <Argument type="int" name="health"/>
+        </Method>
+        <Method name="getAttackDamage" returnType="int" visibility="public"/>
+        <Method name="setAttackDamage" returnType="void" visibility="public">
+          <Argument type="int" name="attackDamage"/>
+        </Method>
+        <Method name="getNumHealthPotions" returnType="int" visibility="public"/>
+        <Method name="setNumHealthPotions" returnType="void" visibility="public">
+          <Argument type="int" name="numHealthPotions"/>
+        </Method>
+        <Method name="getHealthPotionsHealAmount" returnType="int" visibility="public"/>
+        <Method name="setHealthPotionsHealAmount" returnType="void" visibility="public">
+          <Argument type="int" name="healthPotionsHealAmount"/>
+        </Method>
+        <Method name="getHealthPotionsDropChance" returnType="int" visibility="public"/>
+        <Method name="setHealthPotionsDropChance" returnType="void" visibility="public">
+          <Argument type="int" name="healthPotionsDropChance"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ChoiceMenu" package="TheDungeon.Gamesettings" visibility="public" xPosition="1085.0" yPosition="198.0">
+      <Fields>
+        <Field name="windowSetting" type="WindowSetting" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="WindowSetting" name="winSetting"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="dungeonGate" returnType="void" visibility="public">
+          <Argument type="String" name="yourChoice"/>
+        </Method>
+        <Method name="acceptMission" returnType="void" visibility="public">
+          <Argument type="String" name="yourChoice"/>
+        </Method>
+        <Method name="ChosenMenu" returnType="void" visibility="public">
+          <Argument type="String" name="yourChoice"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Enemies" package="TheDungeon.Gamesettings" visibility="public" xPosition="1338.0" yPosition="798.0">
+      <Fields>
+        <Field name="monsters" type="String[]" visibility="private"/>
+        <Field name="maxEnemyHealth" type="int" visibility="private"/>
+        <Field name="enemyAttackDamage" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getMonsters" returnType="String[]" visibility="public"/>
+        <Method name="setMonsters" returnType="void" visibility="public">
+          <Argument type="String[]" name="monsters"/>
+        </Method>
+        <Method name="getMaxEnemyHealth" returnType="int" visibility="public"/>
+        <Method name="setMaxEnemyHealth" returnType="void" visibility="public">
+          <Argument type="int" name="maxEnemyHealth"/>
+        </Method>
+        <Method name="getEnemyAttackDamage" returnType="int" visibility="public"/>
+        <Method name="setEnemyAttackDamage" returnType="void" visibility="public">
+          <Argument type="int" name="enemyAttackDamage"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GameControl" package="TheDungeon.Gamesettings" visibility="public" xPosition="1001.0" yPosition="616.0">
+      <Fields>
+        <Field name="rand" type="Random" visibility="package"/>
+        <Field name="player" type="Characters" visibility="package"/>
+        <Field name="enemy" type="Enemies" visibility="package"/>
+        <Field name="attackResult" type="String" visibility="public"/>
+        <Field name="enemyHealth" type="int" visibility="private"/>
+        <Field name="monster" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="enemyAppears" returnType="String" visibility="public"/>
+        <Method name="choiceAction" returnType="String" visibility="public">
+          <Argument type="String" name="action"/>
+        </Method>
+        <Method name="attack" returnType="String" visibility="public"/>
+        <Method name="ContinueBattle" returnType="String" visibility="public"/>
+        <Method name="drinkPortion" returnType="String" visibility="public"/>
+        <Method name="run" returnType="String" visibility="public"/>
+        <Method name="WonBattle" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameWindow" package="TheDungeon.Gamesettings" visibility="public" xPosition="1507.0" yPosition="321.0">
+      <Fields>
+        <Field name="window" type="JFrame" visibility="private"/>
+        <Field name="con" type="Container" visibility="private"/>
+        <Field name="titleNamePanel" type="JPanel" visibility="public"/>
+        <Field name="titleNameLabel" type="JLabel" visibility="public"/>
+        <Field name="pixelFont" type="Font" visibility="private"/>
+        <Field name="startButton" type="JButton" visibility="public"/>
+        <Field name="mainTextArea" type="JTextArea" visibility="public"/>
+        <Field name="name" type="String" visibility="public"/>
+        <Field name="titleScreenWindow" type="TitleScreen" visibility="package"/>
+        <Field name="exit" type="GameExit" visibility="package"/>
+        <Field name="music" type="SoundEffects" visibility="package"/>
+        <Field name="windowSetting" type="WindowSetting" visibility="package"/>
+        <Field name="choiceButtons" type="ChoiceButtons" visibility="package"/>
+        <Field name="choiceMenu" type="ChoiceMenu" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="GameScreen" returnType="void" visibility="public"/>
+        <Method name="PixelFont" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SoundEffects" package="TheDungeon.Gamesettings" visibility="public" xPosition="1464.0" yPosition="121.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="gameMusic" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WindowSetting" package="TheDungeon.Gamesettings" visibility="public" xPosition="541.0" yPosition="265.0">
+      <Fields>
+        <Field name="win" type="GameWindow" visibility="package"/>
+        <Field name="gameControl" type="GameControl" visibility="package"/>
+        <Field name="position" type="String" visibility="public"/>
+        <Field name="timer" type="Timer" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="GameWindow" name="gameWindow"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="playerSetup" returnType="void" visibility="public"/>
+        <Method name="TextTime" returnType="void" visibility="public"/>
+        <Method name="dungeonGate" returnType="void" visibility="public"/>
+        <Method name="rejectMission" returnType="void" visibility="public"/>
+        <Method name="acceptMission" returnType="void" visibility="public"/>
+        <Method name="goLeft" returnType="void" visibility="public"/>
+        <Method name="ActionDisplay" returnType="void" visibility="public">
+          <Argument type="String" name="result"/>
+        </Method>
+        <Method name="WonBattle" returnType="void" visibility="public">
+          <Argument type="String" name="wonResult"/>
+        </Method>
+        <Method name="gameOver" returnType="void" visibility="public">
+          <Argument type="String" name="gameOver"/>
+        </Method>
+        <Method name="goRight" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TheDungeon" package="TheDungeon" visibility="public" xPosition="183.0" yPosition="671.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="windowSetting" source="TheDungeon.Gamesettings.ChoiceMenu" target="TheDungeon.Gamesettings.WindowSetting" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="WindowSetting"/>
+    <HasRelation name="music" source="TheDungeon.Gamesettings.GameWindow" target="TheDungeon.Gamesettings.SoundEffects" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="player" source="TheDungeon.Gamesettings.GameControl" target="TheDungeon.Gamesettings.Characters" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="enemy" source="TheDungeon.Gamesettings.GameControl" target="TheDungeon.Gamesettings.Enemies" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="windowSetting" source="TheDungeon.Gamesettings.GameWindow" target="TheDungeon.Gamesettings.WindowSetting" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="WindowSetting"/>
+    <HasRelation name="choiceMenu" source="TheDungeon.Gamesettings.GameWindow" target="TheDungeon.Gamesettings.ChoiceMenu" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gameControl" source="TheDungeon.Gamesettings.WindowSetting" target="TheDungeon.Gamesettings.GameControl" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="win" source="TheDungeon.Gamesettings.WindowSetting" target="TheDungeon.Gamesettings.GameWindow" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
