@@ -1,6 +1,5 @@
 package TheDungeon.Gamesettings;
 
-
 import TheDungeon.Gamesettings.SoundEffects;
 import java.awt.Color;
 import java.awt.Container;
@@ -20,10 +19,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
- *
- * @author Trigger PC - Home
+ * @author Victor Silva - 18265 Student Number: 18265 - Final project The
+ * Dungeon 05/15/2020
  */
-public class GameWindow{
+
+
+//This classe show what is been showing when the game is running.
+//Game Screen 
+//This class will create windows and hold frames, containers and labels.
+//Hardest class :( 
+public final class GameWindow {
 
     private JFrame window;
     private Container con;
@@ -32,27 +37,34 @@ public class GameWindow{
     private Font pixelFont;
     public JButton startButton, exitButton, choice1, choice2, choice3, choice4;
     public JTextArea mainTextArea;
-    
-   //Get Name From User
+
+    //Get Name From User
     public String name;
-    
+    //SoundEffects music;
+
     TitleScreen titleScreenWindow = new TitleScreen();
     GameExit exit = new GameExit();
     SoundEffects music = new SoundEffects();
-    WindowSetting windowSetting = new WindowSetting(this);
-    
+    WindowSetting windowSetting = new WindowSetting(this, music);
+
     //CHOICEMENU
     ChoiceButtons choiceButtons = new ChoiceButtons();
     ChoiceMenu choiceMenu = new ChoiceMenu(windowSetting);
-       
-    public GameWindow() {
 
-        //Method font.
+    public GameWindow() {
+            
         PixelFont();
-        
+
         //Getting the String Name for collecting Player's NAME.
-        name = JOptionPane.showInputDialog("Hello Player,\n"+"What Is Your Name?");
+        name = JOptionPane.showInputDialog("Hello Player,\n" + "What Is Your Name?");
+
+         MainScreen();
         
+    }
+
+    
+    public void MainScreen(){
+
         //CREATE A WINDOWS 800X600 - BLACK COLOR -
         window = new JFrame();
         window.setSize(800, 600);
@@ -103,11 +115,10 @@ public class GameWindow{
         con.add(startPANEL);
 
     }
-
+            
     //GAME STARTS - WITH BUTTONS - FRAMES
     public void GameScreen() {
 
-       
         //It sets title panel and start panel to be not visiable. (FALSE) 
         titleNamePanel.setVisible(false);
         startPANEL.setVisible(false);
@@ -166,13 +177,6 @@ public class GameWindow{
         choice3.setActionCommand("C3");
         choicePanel.add(choice3);
 
-        /*choice4 = new JButton("<");
-        choice4.setBackground(Color.black);
-        choice4.setForeground(Color.white);
-        choice4.setFont(gameFont);
-        choice4.setFocusPainted(false);
-        choicePanel.add(choice4);*/
-    
         //PlayerPanel it will hold HP and Weapon
         playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 40);
@@ -180,7 +184,7 @@ public class GameWindow{
         playerPanel.setLayout(new GridLayout(1, 4));
         con.add(playerPanel);
 
-        playerHPLabel = new JLabel(name+" HP:");
+        playerHPLabel = new JLabel(name + " HP:");
         playerHPLabel.setFont(pixelFont);
         playerHPLabel.setForeground(Color.white);
         playerPanel.add(playerHPLabel);
@@ -195,20 +199,21 @@ public class GameWindow{
         weaponLabel.setForeground(Color.white);
         playerPanel.add(weaponLabel);
 
-        weaponLabelNAME = new JLabel();
+        weaponLabelNAME = new JLabel("");
         weaponLabelNAME.setFont(pixelFont);
         weaponLabelNAME.setForeground(Color.white);
         playerPanel.add(weaponLabelNAME);
 
         //THE GAME MUSIC
-        music.gameMusic();
+        this.music.MainMusic();
         
-       windowSetting.playerSetup();
-       windowSetting.dungeonGate();
+        windowSetting.playerSetup();
+        windowSetting.dungeonGate();
     }
 
     
-       public class TitleScreen implements ActionListener {
+    //game TitleScreen event that will call GameScreen
+    public class TitleScreen implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
 
@@ -216,16 +221,15 @@ public class GameWindow{
         }
     }
 
+    //game exit events
     public class GameExit implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
-
             System.exit(0);
-
         }
     }
-    
-    
+
+    //button event that will hold the button choices
     public class ChoiceButtons implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
@@ -234,7 +238,6 @@ public class GameWindow{
             choiceMenu.ChosenMenu(yourChoice);
 
         }
-
     }
 
     //FONT configuration

@@ -1,12 +1,16 @@
 package TheDungeon.Gamesettings;
 
+/**
+ * @author Victor Silva - 18265 Student Number: 18265 - Final project The
+ * Dungeon 05/15/2020
+ */
 import java.util.Random;
 
 public class Characters {
 
-    //All Characters will be here
+    //The whole Character attribute is here.
     private int health = 100;
-    private String[] weapon = {"Knife", "Long Sword", "Pipe", "Staff", "Whip"};
+    private String[] weapon = {"Knife", "Pipe", "Staff", "Whip"};
     private String weapon1;
     private int attackDamage = 50;
     private int numHealthPotions = 3;
@@ -17,12 +21,13 @@ public class Characters {
         setWeapon(weapon);
     }
 
+    //Below - All Getters and Setters
     public String getWeapon() {
         return weapon1;
     }
 
     public void setWeapon(String[] weapon) {
-        
+
         this.weapon1 = weapon[new Random().nextInt(weapon.length)];
     }
 
@@ -65,7 +70,5 @@ public class Characters {
     public void setHealthPotionsDropChance(int healthPotionsDropChance) {
         this.healthPotionsDropChance = healthPotionsDropChance;
     }
-    
-    
 
 }
